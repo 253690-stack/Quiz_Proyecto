@@ -6,3 +6,6 @@ data class Pregunta (
     val opciones: List<String>,
     val respuestaCorrectaIndex: Int
 )
+
+
+
