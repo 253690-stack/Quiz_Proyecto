@@ -11,21 +11,11 @@ class QuizViewModel(
     private val repository: QuizRepository // Inyección del Repositorio
 ) : ViewModel() {
 
-    // Lista de preguntas obtenidas del repositorio
+    // Variables de estado
     var listaPreguntas by mutableStateOf<List<Pregunta>>(emptyList())
-        private set
-
-    // Índice de la pregunta actual en juego
     var indiceActual by mutableStateOf(0)
-        private set
-
-    // Puntaje acumulado del usuario
     var puntaje by mutableStateOf(0)
-        private set
-
-    // Estado para saber si el quiz terminó
     var quizTerminado by mutableStateOf(false)
-        private set
 
     init {
         cargarPreguntas()

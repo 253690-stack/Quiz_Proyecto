@@ -31,12 +31,19 @@ fun QuizScreen(viewModel: QuizViewModel) {
             if (preguntas.isEmpty()) {
                 Text(text = "Cargando preguntas...", fontSize = 18.sp)
             } else if (terminado) {
+
                 // Pantalla de resultados
                 Text(text = "¡Quiz Finalizado!", fontSize = 26.sp, color = Color.Blue)
+
                 Spacer(modifier = Modifier.height(16.dp))
+
                 Text(text = "Tu Puntaje Final: $puntaje", fontSize = 22.sp)
+
                 Spacer(modifier = Modifier.height(24.dp))
-                Button(onClick = { viewModel.reiniciarQuiz() }) {
+
+                Button(onClick = {
+                    viewModel.reiniciarQuiz() }
+                ) {
                     Text(text = "Volver a Jugar")
                 }
             } else {
@@ -61,7 +68,8 @@ fun QuizScreen(viewModel: QuizViewModel) {
                 // Opciones de respuesta
                 preguntaActual.opciones.forEachIndexed { index, opcion ->
                     Button(
-                        onClick = { viewModel.seleccionarRespuesta(index) },
+                        onClick = {
+                            viewModel.seleccionarRespuesta(index) },
                         modifier = Modifier
                             .fillMaxWidth()
                             .padding(vertical = 4.dp)

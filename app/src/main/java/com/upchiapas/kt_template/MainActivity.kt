@@ -13,7 +13,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        // Ensamblamos las dependencias manualmente respetando la arquitectura
+        // Dependencias manualmente respetando la arquitectura
         val dataSource = QuizLocalDataSource()
         val repository = QuizRepository(dataSource)
         val viewModel = QuizViewModel(repository)
