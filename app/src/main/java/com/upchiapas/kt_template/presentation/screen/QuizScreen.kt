@@ -1,11 +1,13 @@
 package com.upchiapas.kt_template.presentation.screen
 
+import android.R
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.upchiapas.kt_template.presentation.viewmodel.QuizViewModel
@@ -64,7 +66,7 @@ fun QuizScreen(viewModel: QuizViewModel) {
                     OutlinedButton(onClick = {
                             mostrarFormulario = true })
                     {
-                        Text(" + Nueva Pregunta")
+                        Text("Nueva Pregunta")
                     }
                 }
             } else {
@@ -84,8 +86,8 @@ fun QuizScreen(viewModel: QuizViewModel) {
 
                     // BOTÓN ONCLICK PARA MOSTRAR EL FORMULARIO
                     Button(onClick = {
-                        mostrarFormulario = true })
-                    {
+                        mostrarFormulario = true
+                    }) {
                         Text("Agregar Pregunta", fontSize = 10.sp)
                     }
                 }
@@ -114,7 +116,8 @@ fun QuizScreen(viewModel: QuizViewModel) {
                 }
 
                 Spacer(modifier = Modifier.height(24.dp))
-                Text(text = "Puntaje actual: $puntaje", fontSize = 16.sp, color = Color.DarkGray)
+
+                Text(text = "Puntaje actual: $puntaje", fontSize = 16.sp, color = Color.DarkGray, fontFamily = FontFamily.Monospace)
             }
         }
     }
@@ -199,7 +202,8 @@ fun FormularioNuevaPregunta(
                     if (enunciado.isNotBlank() && opc1.isNotBlank() && opc2.isNotBlank()) {
                         onGuardar(enunciado, listOf(opc1, opc2, opc3, opc4), correctaIndex)
                     }
-                }
+                },
+
             ) {
                 Text("Guardar")
             }
